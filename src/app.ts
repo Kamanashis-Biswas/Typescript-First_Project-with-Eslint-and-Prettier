@@ -1,3 +1,8 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import { StudentRoutes } from './app/modules/students/student.route';
@@ -16,6 +21,7 @@ app.use(cors());
 app.use('/api/v1', router);
 
 const test = (req: Request, res: Response) => {
+  throw new Error();
   const a = 1;
   res.send(a);
 };
