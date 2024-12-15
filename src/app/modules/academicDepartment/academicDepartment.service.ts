@@ -1,3 +1,4 @@
+import httpStatus from 'http-status';
 import AppError from '../../errors/AppError';
 import { TAcademicDepartment } from './academicDepartment.interface';
 import { AcademicDepartment } from './academicDepartment.model';

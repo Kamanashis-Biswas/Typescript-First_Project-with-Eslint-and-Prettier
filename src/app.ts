@@ -21,7 +21,6 @@ app.use(cors());
 app.use('/api/v1', router);
 
 const test = (req: Request, res: Response) => {
-  throw new Error();
   const a = 1;
   res.send(a);
 };
