@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-this-alias */
-import { model, Schema } from 'mongoose';
-import { TUser } from './user.interface';
-import config from '../../config';
 import bcrypt from 'bcrypt';
-
+import { Schema, model } from 'mongoose';
+import config from '../../config';
+import { TUser } from './user.interface';
 const userSchema = new Schema<TUser>(
   {
     id: {
@@ -38,9 +36,10 @@ const userSchema = new Schema<TUser>(
   },
 );
 
-// pre save middleware/hook
 userSchema.pre('save', async function (next) {
-  const user = this;
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const user = this; // doc
+  // hashing password and save into DB
   user.password = await bcrypt.hash(
     user.password,
     Number(config.bcrypt_salt_rounds),
@@ -48,7 +47,7 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-// set ' ' password to empty string
+// set '' after saving password
 userSchema.post('save', function (doc, next) {
   doc.password = '';
   next();

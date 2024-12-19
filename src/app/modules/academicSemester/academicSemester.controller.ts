@@ -1,6 +1,6 @@
-import sendResponse from '../../utilis/sendResponse';
 import httpStatus from 'http-status';
-import catchAsync from '../../utilis/catchAsync';
+import catchAsync from '../../utils/catchAsync';
+import sendResponse from '../../utils/sendResponse';
 import { AcademicSemesterServices } from './academicSemester.service';
 
 const createAcademicSemester = catchAsync(async (req, res) => {
@@ -11,7 +11,7 @@ const createAcademicSemester = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic semester created successfully',
+    message: 'Academic semester is created succesfully',
     data: result,
   });
 });
